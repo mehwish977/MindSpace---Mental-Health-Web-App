@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Self-Care Checklist - MindSpace App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/selfcare.css') }}">
+</head>
+<body class="selfcarepage">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo" onclick="location.href='{{ url_for('home') }}'">MindSpace</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('menu') }}">Menu</a>
+            <a href="{{ url_for('moodtracker') }}">Mood Tracker</a>
+            <a href="{{ url_for('selfcare') }}">Selfcare</a>
+            <a href="{{ url_for('exercises') }}">Exercises</a>
+            <a href="{{ url_for('quotes') }}">Quotes</a>
+        </nav>
+    </header>
+
+    <!-- Main Checklist Container -->
+    <div class="checklist-wrapper">
+        <h1>Daily Self-Care Checklist</h1>
+
+        <div class="checklist">
+            <div class="check-item">
+                <input type="checkbox" id="hydration">
+                <label for="hydration">Drink 8 glasses of water</label>
+            </div>
+
+            <div class="check-item">
+                <input type="checkbox" id="meditation">
+                <label for="meditation">Meditate for 10 minutes</label>
+            </div>
+
+            <div class="check-item">
+                <input type="checkbox" id="exercise">
+                <label for="exercise">Do some physical activity</label>
+            </div>
+
+            <div class="check-item">
+                <input type="checkbox" id="journaling">
+                <label for="journaling">Write in your journal</label>
+            </div>
+
+            <div class="check-item">
+                <input type="checkbox" id="healthyMeal">
+                <label for="healthyMeal">Eat a healthy meal</label>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Created by Mehwish
+    </footer>
+
+    <!-- JS for progress bar -->
+    <script>
+        const checkboxes = document.querySelectorAll('.check-item input');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateProgress() {
+            const total = checkboxes.length;
+            let checked = 0;
+            checkboxes.forEach(cb => { if(cb.checked) checked++; });
+            const percentage = (checked / total) * 100;
+            progressBar.style.width = percentage + '%';
+
+            if(percentage === 100) {
+                // Confetti effect
+                const confettiScript = document.createElement('script');
+                confettiScript.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js";
+                confettiScript.onload = () => confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                document.body.appendChild(confettiScript);
+            }
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+    </script>
+</body>
+</html>

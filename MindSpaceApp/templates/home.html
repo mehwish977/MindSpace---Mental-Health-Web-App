@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSpace - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">MindSpace</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>MindSpace</h1>
+        <p>Your Mental Wellness Hub</p>
+        <a href="{{ url_for('menu') }}" class="btn">Start Now</a>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/brain.png') }}" alt="Rotating Brain">
+        </div>
+
+        <!-- Moving Ellipses -->
+        <div class="ellipse ellipse1"></div>
+        <div class="ellipse ellipse2"></div>
+        <div class="ellipse ellipse3"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        Created by Mehwish
+    </footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSpace - Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Overpass+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="menu">
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo" onclick="location.href='{{ url_for('home') }}'">MindSpace</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('menu') }}">Menu</a>
+            <a href="{{ url_for('moodtracker') }}">Mood Tracker</a>
+            <a href="{{ url_for('selfcare') }}">Selfcare</a>
+            <a href="{{ url_for('exercises') }}">Exercises</a>
+            <a href="{{ url_for('quotes') }}">Quotes</a>
+        </nav>
+    </header>
+
+    <!-- Ellipses Background -->
+    <div class="ellipse" style="width: 120px; height: 120px; background: #FFD8C2; top: 50px; left: 40px;"></div>
+    <div class="ellipse" style="width: 180px; height: 180px; background: #BFFFE0; top: 200px; left: 300px;"></div>
+    <div class="ellipse" style="width: 100px; height: 100px; background: #D6CDEA; top: 400px; left: 150px;"></div>
+
+    <!-- Menu Cards -->
+    <div class="menu-container">
+        <div class="menu-card" onclick="location.href='{{ url_for('moodtracker') }}'">Mood Tracker</div>
+        <div class="menu-card" onclick="location.href='{{ url_for('selfcare') }}'">Selfcare</div>
+        <div class="menu-card" onclick="location.href='{{ url_for('exercises') }}'">Exercises</div>
+        <div class="menu-card" onclick="location.href='{{ url_for('quotes') }}'">Quotes</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="menu-footer">
+        <p>Created by Mehwish</p>
+    </footer>
+</body>
+</html>

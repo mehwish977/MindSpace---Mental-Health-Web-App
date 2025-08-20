@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat - MindSpace App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body class="chatpage">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo" onclick="location.href='{{ url_for('home') }}'">MindSpace</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('menu') }}">Menu</a>
+            <a href="{{ url_for('moodtracker') }}">Mood Tracker</a>
+            <a href="{{ url_for('selfcare') }}">Selfcare</a>
+            <a href="{{ url_for('exercises') }}">Exercises</a>
+            <a href="{{ url_for('quotes') }}">Quotes</a>
+        </nav>
+    </header>
+
+    <!-- Main Chat Area -->
+    <div class="chat-main">
+
+        <!-- Scrollable Chat Box -->
+        <div class="chat-box">
+            {% if not user_message and not bot_response %}
+                <div class="chat-empty">Start the conversation...</div>
+            {% endif %}
+
+            {% if user_message %}
+            <div class="message user">
+                <img src="{{ url_for('static', filename='images/user.png') }}" class="avatar" alt="User">
+                <div class="bubble">{{ user_message }}</div>
+            </div>
+            {% endif %}
+
+            {% if bot_response %}
+            <div class="message bot">
+                <img src="{{ url_for('static', filename='images/bot.png') }}" class="avatar" alt="Bot">
+                <div class="bubble">{{ bot_response }}</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Chat Input -->
+        <form class="chat-input-form" method="POST" action="{{ url_for('chat', mood=mood) }}">
+            <input type="text" name="message" placeholder="Type your message..." required autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Created by Mehwish
+    </footer>
+
+</body>
+</html>

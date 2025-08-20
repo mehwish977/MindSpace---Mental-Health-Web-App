@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quotes - MindSpace App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quotes.css') }}">
+</head>
+<body class="chatpage">
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo" onclick="location.href='{{ url_for('home') }}'">MindSpace</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('menu') }}">Menu</a>
+            <a href="{{ url_for('moodtracker') }}">Mood Tracker</a>
+            <a href="{{ url_for('selfcare') }}">Selfcare</a>
+            <a href="{{ url_for('exercises') }}">Exercises</a>
+            <a href="{{ url_for('quotes') }}">Quotes</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="quote-wrapper">
+        <div class="quote-box" id="quote-box">
+            Loading quote...
+        </div>
+        <button id="new-quote-btn">New Quote</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Created by Mehwish
+    </footer>
+
+    <!-- JS -->
+    
+    <script>
+        async function fetchQuote() {
+            const quoteBox = document.getElementById('quote-box');
+            quoteBox.classList.remove('fade-in');
+            void quoteBox.offsetWidth; // Trigger reflow for restart animation
+            quoteBox.textContent = "Loading...";
+            try {
+                const response = await fetch('/get_quote');
+                const data = await response.json();
+                quoteBox.textContent = data.quote;
+                quoteBox.classList.add('fade-in');
+            } catch (error) {
+                quoteBox.textContent = "Failed to load quote.";
+            }
+        }
+
+        document.getElementById('new-quote-btn').addEventListener('click', fetchQuote);
+
+        // Load first quote on page load
+        window.onload = fetchQuote;
+    </script>
+</body>
+</html>

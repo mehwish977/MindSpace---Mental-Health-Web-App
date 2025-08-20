@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Overpass+Mono:wght@400;700&display=swap');
+
+/* ================= Global ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.exercise-page {
+    font-family: 'Overpass Mono', monospace;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFD8C2, #D6CDEA, #BFFFE0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ================= Header ================= */
+header.navbar {
+    width: 100%;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(30, 20, 163, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-family: 'Orbitron', sans-serif;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+header nav a {
+    color: #FFFFFF;
+    margin-left: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #FFD8C2;
+}
+
+/* ================= Footer ================= */
+footer {
+    background: rgba(30, 20, 163, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* ================= Exercises Container ================= */
+.exercises-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 120px; /* space for header */
+    padding: 20px;
+    text-align: center;
+}
+
+.exercises-wrapper h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #301934;
+    text-shadow: 0 0 8px rgba(255,110,199,0.6);
+}
+
+/* ================= Exercise Cards ================= */
+.exercise-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.exercise-card {
+    background: linear-gradient(135deg, #FFDEE9, #FFC3E1, #E0BBE4);
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* ================= Buttons ================= */
+.done-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #FF6EC7, #7AFBEC);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.done-btn:hover {
+    background: linear-gradient(135deg, #B5FFFC, #FFDEE9);
+}
+
+.done-btn:disabled {
+    cursor: not-allowed;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+    .exercise-card {
+        width: 90%;
+    }
+}

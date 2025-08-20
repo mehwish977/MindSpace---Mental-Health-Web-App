@@ -1,0 +1,240 @@
+/* ================= Fonts ================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Overpass+Mono:wght@400;700&display=swap');
+
+/* ================= Global ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.chatpage {
+    font-family: 'Overpass Mono', monospace;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFD8C2, #D6CDEA, #BFFFE0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ================= Aurora Background ================= */
+body.chatpage::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,182,193,0.3), transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(173,216,230,0.3), transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(144,238,144,0.3), transparent 40%);
+    animation: auroraMove 25s infinite alternate;
+    top: -50%;
+    left: -50%;
+    z-index: 0;
+}
+
+@keyframes auroraMove {
+    0% { transform: rotate(0deg) translate(0,0); }
+    50% { transform: rotate(45deg) translate(50px, -50px); }
+    100% { transform: rotate(0deg) translate(0,0); }
+}
+
+/* ================= Header ================= */
+header.navbar {
+    width: 100%;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(30, 20, 163, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-family: 'Orbitron', sans-serif;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+header .logo:hover {
+    transform: scale(1.1);
+}
+
+header nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+header nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.3s;
+    font-family: 'Orbitron', sans-serif;
+}
+
+header nav a:hover {
+    color: #FFD8C2;
+    transform: translateY(-3px);
+}
+
+/* ================= Footer ================= */
+footer {
+    background: rgba(30, 20, 163, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    font-family: 'Overpass Mono', monospace;
+    color: #FFFFFF;
+    font-size: 1rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: inset 0 2px 8px rgba(255,255,255,0.15);
+}
+
+/* ================= Main Chat Wrapper ================= */
+.chat-main {
+    width: 500px;
+    max-width: 90%;
+    height: 400px;
+    background: linear-gradient(135deg, #FFDEE9, #FFC3E1, #E0BBE4);
+    border-radius: 25px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* ================= Scrollable Chat Box ================= */
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 10px;
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: rgba(255,110,199,0.6);
+    border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+}
+
+/* ================= Messages ================= */
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    word-wrap: break-word;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.bubble {
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 1rem;
+    max-width: 70%;
+    word-wrap: break-word;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.user .bubble {
+    background: rgba(255, 110, 199, 0.8);
+    color: #fff;
+    align-self: flex-end;
+}
+
+.bot .bubble {
+    background: rgba(255,255,255,0.95);
+    color: #000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* ================= Chat Input ================= */
+.chat-input-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.chat-input-form input[type="text"] {
+    flex: 1;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    backdrop-filter: blur(5px);
+    background: rgba(255,255,255,0.5);
+}
+
+.chat-input-form button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(135deg, #FF6EC7, #7AFBEC);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chat-input-form button:hover {
+    background: linear-gradient(135deg, #B5FFFC, #FFDEE9);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+    .chat-main {
+        width: 90%;
+        height: 350px;
+    }
+
+    .chat-box {
+        height: 250px;
+    }
+
+    .chat-input-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

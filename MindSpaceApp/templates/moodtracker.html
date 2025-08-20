@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mood Tracker - MindSpace App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/moodtracker.css') }}">
+</head>
+<body class="moodtracker">
+
+      <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo" onclick="location.href='{{ url_for('home') }}'">MindSpace</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('menu') }}">Menu</a>
+            <a href="{{ url_for('moodtracker') }}">Mood Tracker</a>
+            <a href="{{ url_for('selfcare') }}">Selfcare</a>
+            <a href="{{ url_for('exercises') }}">Exercises</a>
+            <a href="{{ url_for('quotes') }}">Quotes</a>
+        </nav>
+    </header>
+
+    <!-- Animated Background -->
+    <div class="aurora-bg"></div>
+
+    <!-- Mood Selection -->
+    <section class="mood-section">
+        <h1>How are you feeling today?</h1>
+        <div class="emoji-row">
+            <div class="emoji-item">
+                <a href="{{ url_for('chat', mood='happy') }}">
+                    <img src="{{ url_for('static', filename='images/happy.png') }}" alt="Happy">
+                    <span>Happy</span>
+                </a>
+            </div>
+            <div class="emoji-item">
+                <a href="{{ url_for('chat', mood='excited') }}">
+                    <img src="{{ url_for('static', filename='images/excited.png') }}" alt="Excited">
+                    <span>Excited</span>
+                </a>
+            </div>
+            <div class="emoji-item">
+                <a href="{{ url_for('chat', mood='angry') }}">
+                    <img src="{{ url_for('static', filename='images/angry.png') }}" alt="Angry">
+                    <span>Angry</span>
+                </a>
+            </div>
+            <div class="emoji-item">
+                <a href="{{ url_for('chat', mood='sad') }}">
+                    <img src="{{ url_for('static', filename='images/sad.png') }}" alt="Sad">
+                    <span>Sad</span>
+                </a>
+            </div>
+            <div class="emoji-item">
+                <a href="{{ url_for('chat', mood='anxious') }}">
+                    <img src="{{ url_for('static', filename='images/anxious.png') }}" alt="Anxious">
+                    <span>Anxious</span>
+                </a>
+            </div>
+            <div class="emoji-item">
+                <a href="{{ url_for('chat', mood='emotional') }}">
+                    <img src="{{ url_for('static', filename='images/emotional.png') }}" alt="Emotional">
+                    <span>Emotional</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created by Mehwish</p>
+    </footer>
+
+</body>
+</html>
