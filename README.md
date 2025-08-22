@@ -34,8 +34,6 @@ The solution is designed as a **web app** to be easily accessible to anyone, any
 - **Backend:** Python, Flask  
 - **Frontend:** HTML, CSS, JavaScript  
 - **AI:** OpenAI API (GPT-4o-mini for chatbot, text-davinci-003 for quotes)  
-- **Deployment:** [Render.com](https://render.com/)
-- for free hosting
 
 ---
 
