@@ -25,7 +25,6 @@ MindSpace provides:
 3. **Interactive Exercises:** Engage in psychology-based exercises to improve emotional intelligence and resilience.  
 4. **Motivational Quotes:** Infinite AI-generated quotes to inspire and uplift users.
 
-The solution is designed as a **web app** to be easily accessible to anyone, anywhere, without installation.
 
 ---
 
