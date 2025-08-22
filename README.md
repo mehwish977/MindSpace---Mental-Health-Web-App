@@ -1,6 +1,6 @@
 # MindSpace - Mental Health Web App
 
-**Hackathon Submission:** Techs Sparking Challenge (Deadline: 2 Nov 2025)
+**Hackathon Submission:** Techs Sparking Challenge 
 
 MindSpace is a volunteer initiative designed to address mental health challenges faced by teens and young adults. It provides an interactive web platform to help users express their emotions, engage in self-care, and access motivational content.
 
